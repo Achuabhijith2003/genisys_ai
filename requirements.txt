@@ -1,0 +1,6 @@
+SpeechRecognition
+pyttsx3
+python-dotenv
+langchain-openai
+openai
+langchain
