@@ -1,5 +1,5 @@
 *.env
 venv/
 bro/
-*/__pycache__/
+__pycache__/
 *.json
