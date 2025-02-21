@@ -13,21 +13,21 @@ os.makedirs(os.path.dirname(MEMORY_FILE), exist_ok=True)
 def load_memory():
     if os.path.exists(MEMORY_FILE):
         with open(MEMORY_FILE, "r") as file:
-            history = json.load(file).get("chat_history", [])[-30:]
+            history = json.load(file).get("chat_history", [])[-config.MAX_MEMORY_N :]
 
             # Convert JSON objects back to LangChain messages
             messages = []
             for msg in history:
                 if msg["role"] == "user":
                     messages.append(HumanMessage(content=msg["content"]))
-                elif msg["role"] == "assistant":
+                elif msg["role"] == "system":
                     messages.append(AIMessage(content=msg["content"]))
             return messages
     return []
 
-# Function to save only the last 30 messages (JSON-safe)
+# Function to save only the last MAX_MEMORY_N  messages (JSON-safe)
 def save_memory(history):
-    json_safe_history = [{"role": "user" if isinstance(msg, HumanMessage) else "assistant", "content": msg.content} for msg in history[-30:]]
+    json_safe_history = [{"role": "user" if isinstance(msg, HumanMessage) else "assistant", "content": msg.content} for msg in history[-config.MAX_MEMORY_N :]]
     
     with open(MEMORY_FILE, "w") as file:
         json.dump({"chat_history": json_safe_history}, file, indent=4)

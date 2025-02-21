@@ -1,9 +1,12 @@
 import core
-
+import time
 
 
 
 def main():
+    core.speaker.speak("Genisys is Starting")
+    time.sleep(4)
+    core.speaker.speak("Pleses wait for a moment")
     while True:
         state,command= core.listener.listen()
         if state:
@@ -23,3 +26,5 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("Programe Terminated")
+        
+        
