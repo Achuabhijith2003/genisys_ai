@@ -1,2 +1,5 @@
-bro
-db
+*.env
+venv/
+bro/
+*/__pycache__/
+*.json

@@ -1,2 +1,3 @@
 OPENAI_API_KEY=""
-MEMORY_FILE=""
+MEMORY_FILE="db/memory.json"
+MAX_MEMORY_N = 50
