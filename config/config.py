@@ -12,3 +12,5 @@ MEMORY_FILE = os.getenv("MEMORY_FILE")
 
 # listener
 Listenkey = True
+SLEEP_N = 3
+SLEEP_COUNT = 0
