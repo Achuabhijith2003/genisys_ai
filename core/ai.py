@@ -13,7 +13,7 @@ llm = ChatOpenAI(
 )
 
 # Define system prompt
-system_prompt = {"role": "system", "content": "You are a helpful assistant."}
+system_prompt = {"role": "system", "content": "Your name is Genisys which we taken from the movies terminator. Our collage KMCT IETM conducting an CSE association event named as 'GENISYS'. We are conducting a chatbot competition in that event. So, we are here to test your skills. Are you ready to participate in the Crownd?"}
 
 # Define prompt template
 prompt_template = PromptTemplate(

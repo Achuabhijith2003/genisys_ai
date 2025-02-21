@@ -20,7 +20,7 @@ def load_memory():
             for msg in history:
                 if msg["role"] == "user":
                     messages.append(HumanMessage(content=msg["content"]))
-                elif msg["role"] == "assistant":
+                elif msg["role"] == "system":
                     messages.append(AIMessage(content=msg["content"]))
             return messages
     return []
