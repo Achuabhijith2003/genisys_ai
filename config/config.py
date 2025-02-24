@@ -17,3 +17,6 @@ WEATHER_API_KEY = os.getenv('WEATHER_API_KEY')
 Listenkey = True
 SLEEP_N = 3
 SLEEP_COUNT = 0
+
+# predata
+PREDATA_FILE = 'predata.txt'

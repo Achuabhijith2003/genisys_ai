@@ -6,6 +6,17 @@ from config import config
 
 MEMORY_FILE = config.MEMORY_FILE
 
+def load_predata():
+    try:
+        with open(f"db/{config.PREDATA_FILE}", "r", encoding="utf-8") as file:
+            return file.read()
+    except FileNotFoundError:
+        print(f"Error: {config.PREDATA_FILE} not found.")
+        return ""
+    except Exception as e:
+        print(f"Error loading {config.PREDATA_FILE}: {e}")
+        return ""
+
 # Function to load chat history and convert to LangChain format
 def load_memory():
     if os.path.exists(MEMORY_FILE):
