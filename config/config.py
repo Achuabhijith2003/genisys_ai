@@ -10,6 +10,9 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 MAX_MEMORY_N = int(os.getenv("MAX_MEMORY_N"))
 MEMORY_FILE = os.getenv("MEMORY_FILE")
 
+# weather
+WEATHER_API_KEY = os.getenv('WEATHER_API_KEY')
+
 # listener
 Listenkey = True
 SLEEP_N = 3

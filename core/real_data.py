@@ -1,23 +1,26 @@
-import time
 import datetime
 import requests
+from config import config
 
 
-
-def get_weather(location):
-    api_key = 'f737c4f8db421551ff71a7445e714c67'  # Replace with your actual API key
-    base_url = f'https://api.openweathermap.org/data/2.5/weather?q={location}&units=metric&appid={api_key}'
+def get_weather(location="kerala"):
+    base_url = f'https://api.openweathermap.org/data/2.5/weather?q={location}&units=metric&appid={config.WEATHER_API_KEY}'
     response = requests.get(base_url)
-    return response.json()
+    data = response.json()
+    
+    if response.status_code == 200:
+        temp = data['main']['temp']
+        weather_desc = data['weather'][0]['description']
+        humidity = data['main']['humidity']
+        return f"The current weather in {location.capitalize()} is {weather_desc} with a temperature of {temp}°C and humidity at {humidity}%."
+    else:
+        return f"Sorry, I couldn't fetch the weather for {location.capitalize()}. Please check the location name and try again."
 
-if True:
-    current_time = time.strftime('%H:%M:%S')
-    current_date = datetime.datetime.now().strftime('%Y-%m-%d')
-    location = 'New York'  # Replace with your desired location
-    weather_data = get_weather(location)
-    
-    print(f'Time: {current_time}')
-    print(f'Date: {current_date}')
-    print(f'Weather in {location}: {weather_data}')
-    
-    time.sleep(60)  # Wait for 60 seconds before getting the data again
+
+def date_time_info():
+    now = datetime.datetime.now()
+    formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
+    return formatted_time
+
+
+

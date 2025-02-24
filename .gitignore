@@ -3,3 +3,4 @@ venv/
 bro/
 __pycache__/
 *.json
+db/
