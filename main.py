@@ -1,9 +1,11 @@
 import core
+from core import speaker
 import time
 from config import config
 
 def main():
-    core.speaker.speak("Genisys is Starting")
+
+    speaker.speak("Genisys is Starting")
     time.sleep(4)
     speaker.speak("Please wait for a moment")
     
@@ -63,3 +65,4 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("Program Terminated")
+
