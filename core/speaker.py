@@ -1,19 +1,22 @@
 import pyttsx3
 
+class Speaker:
+    def __init__(self):
+        self.engine = pyttsx3.init()
+        self.engine.setProperty('rate', 170)  # Adjust speech speed
 
-def speak(text):
-    engine = pyttsx3.init()
-    voices = engine.getProperty('voices')
+        voices = self.engine.getProperty('voices')
 
-    # Try to find an Indian-English voice
-    for voice in voices:
-        if 'india' in voice.name.lower() or 'indian' in voice.name.lower():
-            engine.setProperty('voice', voice.id)
-            break  
-    
-    # Reduce speaking speed
-    engine.setProperty('rate', 170)  # Default is ~200, lower = slower
+        # Try to find an Indian-English voice
+        for voice in voices:
+            if 'india' in voice.name.lower() or 'indian' in voice.name.lower():
+                self.engine.setProperty('voice', voice.id)
+                break
 
-    engine.say(text)
-    engine.runAndWait()
+    def speak(self, text):
+        self.engine.say(text)
+        self.engine.runAndWait()
+
+
+speaker = Speaker()
 
