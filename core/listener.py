@@ -1,5 +1,5 @@
 import speech_recognition as sr
-from . import speaker
+from .speaker import speaker
 from config import config
 
 recognizer = sr.Recognizer()
@@ -21,4 +21,3 @@ def listen():
             return False,"Sorry, I didn't understand that."
         except sr.RequestError:
             return False,"Speech recognition service is unavailable."
-
